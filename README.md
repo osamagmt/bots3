@@ -1,1 +1,2 @@
-# bots3
+# mykingbot
+King Bot
