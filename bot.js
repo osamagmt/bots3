@@ -325,27 +325,6 @@ setInterval(function(){})
 });
 
 
-
-
-
-  client.on('messageUpdate', (oldRebel, newRebel) => {
-    console.log("شخص ما حاول النشر");
-   if (newRebel.content.toUpperCase().match(/DISCORD.GG/i))
-    {
-        console.log(newRebel.author.name + " حاول النشر عبر تعديل الرسآلة  " + newRebel);
-           newRebel.delete().catch(O_o=>{}); 
-           newRebel.author.send("ممنوع نشر الروابط");
-    }
-});
-  
-	    
-	    
-
-
-
-
-
-
 client.on('message', function(message) {
 	const myID = "556475786518069270";
     let args = message.content.split(" ").slice(1).join(" ");
@@ -393,58 +372,6 @@ client.on('message', function(message) {
 });
 
 
-
-
-
-
-
-
-
-  client.on('message', async message => {
-            if(message.content.includes('discord.gg')){ 
-                if(message.member.hasPermission("MANAGE_GUILD")) return;
-        if(!message.channel.guild) return;
-        message.delete()
-          var command = message.content.split(" ")[0];
-    let muterole = message.guild.roles.find(`name`, "Muted");
-    if(!muterole){
-      try{
-        muterole = await message.guild.createRole({
-          name: "Muted",
-          color: "#000000",
-          permissions:[]
-        })
-        message.guild.channels.forEach(async (channel, id) => {
-          await channel.overwritePermissions(muterole, {
-            SEND_MESSAGES: false,
-            ADD_REACTIONS: false
-          });
-        });
-      }catch(e){
-        console.log(e.stack);
-      }
-    }
-           if(!message.channel.guild) return message.reply('** هذا الامر فقط للسيرفرات**');
-     message.member.addRole(muterole);
-    const embed500 = new Discord.RichEmbed()
-      .setTitle("معاقب")
-            .addField(`** ⚖️ بسبب نشر الروابط **`,`** ￼ **`)
-            .setColor("c91616")
-            .setThumbnail(`${message.author.avatarURL}`)
-            .setAuthor(message.author.username, message.author.avatarURL)
-        .setFooter(`${message.guild.name} `)
-     message.channel.send(embed500)
-     message.author.send('` انت معاقب ميوت شاتي بسبب نشر سرفرات ان كان عن طريق الخطا **ف** تكلم مع الادارة `');
-   
-       
-    }
-})
-  
-
-
-
-
-
 client.on('message', msg => {
   if (msg.content === '*public') {
     msg.reply(':envelope: | تم ارسال الاوامر العامة في الخاص');
@@ -471,18 +398,6 @@ client.on('message', msg => {
   if (msg.content === '*music') {
     msg.reply(':envelope: | تم ارسال اوامر الموسيقى في الخاص');
   }
-});
-
-
-
-
-client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
-    if(message.content.includes('discord.me')){
-      if(!message.member.hasPermission('ADMINISTRATOR'))
-        message.delete()
-    return message.reply(`** No Invites Links :angry: ! **`)
-    }
 });
 
 
