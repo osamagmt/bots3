@@ -347,7 +347,7 @@ setInterval(function(){})
 
 
 client.on('message', function(message) {
-	const myID = "556475786518069270",process.env.ID;
+	const myID = "556475786518069270";
     let args = message.content.split(" ").slice(1).join(" ");
     if(message.content.startsWith(prefix + "setname")) {
 		        if(message.author.id !== myID) return;
@@ -360,7 +360,7 @@ client.on('message', function(message) {
     } else if(message.content.startsWith(prefix + "stream")) {
 		        if(message.author.id !== myID) return;
             if(!args) return message.reply('اكتب الحالة اللي تريدها.');
-        client.user.setGame(args , 'https://twitch.tv/osaam_gmt');
+        client.user.setGame(args , 'https://twitch.tv/osamض_gmt');
         message.channel.send(':white_check_mark: Done!').then(msg => {
            msg.delete(5000);
           message.delete(5000);
